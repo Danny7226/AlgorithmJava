@@ -27,4 +27,12 @@ public class AdapterPattern {
             return internalClass.someNumber() * someAdaptingNumber;
         }
     }
+
+    void main() {
+        InternalClass dependencyClass = new InternalClass();
+
+        // client needs to get the criticalNumber provided by ClientInterface
+        ClientInterface clientInterface = new InternalClassAdaptor(dependencyClass);
+        clientInterface.criticalNumber();
+    }
 }

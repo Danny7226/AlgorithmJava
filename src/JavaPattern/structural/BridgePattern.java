@@ -55,4 +55,10 @@ public class BridgePattern {
             return color.getColor();
         }
     }
+
+    void main() {
+        Color red = new Red();
+        Square redSquare = new Square(red);
+        redSquare.getColor();
+    }
 }
