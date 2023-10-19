@@ -1,4 +1,4 @@
-package JavaPattern;
+package JavaPattern.structural;
 
 /**
  * Adaptor is about provide consistent client interface by having an

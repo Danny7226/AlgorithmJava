@@ -1,4 +1,4 @@
-package JavaPattern;
+package JavaPattern.structural;
 
 /**
  * Bridge is about delegation/reference-pointing, it serves as an abstraction and is provided to clients
