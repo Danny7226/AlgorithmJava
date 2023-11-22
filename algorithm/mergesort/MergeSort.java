@@ -10,17 +10,15 @@ public class MergeSort {
         if (head == null || head.next == null) return head;
 
         // cut list into 2 halves
-        ListNode prev = null, slow = head, fast = head;
-
+        ListNode prev = null, slow = head, fast = head; // need prev here cuz slow node doesn't have prev pointer
         while(fast != null && fast.next != null) {
             prev = slow;
             slow = slow.next;
             fast = fast.next.next;
         }
-
         prev.next = null;
 
-        // sort each half recuisively
+        // sort each half recursively
         final ListNode sorted1stHalf = sortList(head);
         final ListNode sorted2ndHalf = sortList(slow);
 
@@ -29,7 +27,7 @@ public class MergeSort {
     }
 
     private static ListNode merge(ListNode l1, ListNode l2) {
-        ListNode curser = new ListNode(), dummyHead = curser;
+        ListNode curser = new ListNode(), dummyHead = curser; // a cursor to sew the list, dummyhead to maintain head position
 
         // compare current node of 2 sorted list, connect curser with the smaller one
         // move curser and current smaller node forward by 1.
@@ -47,14 +45,11 @@ public class MergeSort {
         if (l1 != null) {
             curser.next = l1;
         }
-
         if (l2 != null) {
             curser.next = l2;
         }
-
         return dummyHead.next;
     }
-
 }
 
 class ListNode {
