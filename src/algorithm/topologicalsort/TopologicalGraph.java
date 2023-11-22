@@ -1,4 +1,4 @@
-package TopologicalSort;
+package algorithm.topologicalsort;
 
 import java.util.Collections;
 import java.util.HashMap;
