@@ -44,10 +44,13 @@ class Solution {
         int sortedIndex = start;
         for (int cursor = start; cursor < end; cursor++) {
             if (isSmaller(intervals[cursor], intervals[end])) {
+                // if cursor smaller than pivot, swap
                 swap(intervals, cursor, sortedIndex);
                 sortedIndex++;
             }
         }
+        // every element before sortedIndex smaller than pivot
+        // every element including sortedIndex bigger than pivot;
         swap(intervals, sortedIndex, end);
         quickSort(intervals, start, sortedIndex-1);
         quickSort(intervals, sortedIndex+1, end);
@@ -59,10 +62,16 @@ class Solution {
     }
 
     private void swap(final int[][] intervals, final int i1, final int i2) {
-        final int[] temp = new int[]{intervals[i1][0], intervals[i1][1]};
-        intervals[i1][0] = intervals[i2][0];
-        intervals[i1][1] = intervals[i2][1];
-        intervals[i2][0] = temp[0];
-        intervals[i2][1] = temp[1];
+        // java is pass by value, the intervals parameter here is a copy of the value of the pointer
+        // https://github.com/Snailclimb/JavaGuide/blob/main/docs/java/basis/why-there-only-value-passing-in-java.md
+        final int[] temp = intervals[i2];
+        intervals[i2] = intervals[i1];
+        intervals[i1] = temp;
+        //        final int[] temp = new int[]{intervals[i1][0], intervals[i1][1]};
+        //        intervals[i1][0] = intervals[i2][0];
+        //        intervals[i1][1] = intervals[i2][1];
+        //        intervals[i2][0] = temp[0];
+        //        intervals[i2][1] = temp[1];
+
     }
 }
