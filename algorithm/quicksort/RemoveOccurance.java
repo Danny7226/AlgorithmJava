@@ -9,19 +9,17 @@
 class Solution {
     public int removeElement(int[] nums, int val) {
         // similar to quick sort
-        // have a removing cursor pointing to the last non-val element of the array
-        // have another iterating cursor iterate through the array, as well as comparing nums[cursor] with val
-        // If equls, swap with removing cursor and then move removing cursor one index forward
+        // have a traverse cursor and a sortedIndex.
+        // if traverse cursor points to an element of not value 'val', load it upfront (swap)
 
-        int removingCursor = nums.length - 1, cursor;
-        for (cursor = 0; cursor <= removingCursor; cursor++) {
-            while (removingCursor>=0 && nums[removingCursor] == val) removingCursor--;
-            if (cursor < removingCursor) {
-                if (nums[cursor] == val) swap(nums, cursor, removingCursor);
-            };
+        int sortedIndex = 0;
+        for(int cursor = 0; cursor < nums.length; cursor++) {
+            if (nums[cursor] != val) {
+                swap(nums, sortedIndex, cursor);
+                sortedIndex++;
+            }
         }
-
-        return removingCursor + 1; // removingCursor is the index, need to return the length
+        return sortedIndex;
     }
 
     private void swap(int[] nums, int i1, int i2) {
