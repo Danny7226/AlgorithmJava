@@ -44,7 +44,7 @@ class Solution {
                     res[i] = a2[a2Cursor];
                     a2Cursor++;
                 }
-                continue;
+                continue; // continue is importent, needs to be noted
             }
 
             if (a1Cursor >= a1.length) {
