@@ -1,7 +1,7 @@
 /**
  * log(m*n) = logm + logn
  * log(m/n) = logm - logn
- * log(m) / log(e) = lnm
+ * log(m) / log(e) = lnm // change base
  *
  * Can be generalized into Kth smallest element in n Sorted Arrays
  */
