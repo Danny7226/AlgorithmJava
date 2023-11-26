@@ -6,7 +6,7 @@ package algorithm.mergesort;
  */
 public class MergeSort {
     public static ListNode sortList(ListNode head) {
-        // complexity O(NlogN), space O(N)
+        // complexity O(N/2*NlogN), space O(N), find middle takes O(N/2)
         if (head == null || head.next == null) return head;
 
         // cut list into 2 halves
