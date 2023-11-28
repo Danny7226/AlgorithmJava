@@ -21,6 +21,9 @@
  * [null, null, null, null, 5, 5, 1, 5, 1, 5]
  */
 class MaxStack {
+    // Could also use 2 tree set, one to store elements in the order of value, other to store in the order of insertion order
+    // TreeSet.remove()  takes only O(logn) complexity , .pollLast() .last() takes O(1)
+
     // popMax requires remove an element potentially deep in the stack, which requires at least O(n)
     // use a data structure (heap) to store the max value,
     // and use an hashset of ids to keep track of the removed elements to lazy update
