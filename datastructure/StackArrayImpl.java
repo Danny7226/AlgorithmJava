@@ -16,25 +16,29 @@ class MyStack {
     }
 
     public void push(int x) {
+        // O(1) when not expanding size
         // TODO auto scale
         this.arrayImpl[++cursorIndex] = x;
     }
 
     public int pop() {
+        // O(1)
         if (this.cursorIndex == -1) {
-            throw new NullPointerException();
+            throw new IllegalStateException();
         }
         return this.arrayImpl[cursorIndex--];
     }
 
     public int top() {
+        // O(1)
         if (this.cursorIndex == -1) {
-            throw new NullPointerException();
+            throw new IllegalStateException();
         }
         return this.arrayImpl[cursorIndex];
     }
 
     public boolean empty() {
+        // O(1)
         return this.cursorIndex == -1;
     }
 }
