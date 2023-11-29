@@ -25,6 +25,11 @@
  * firstUnique.showFirstUnique(); // return -1
  */
 class FirstUnique {
+    // we need a data structure to store the FIFO data
+    // also need a data structure to check if an element is unique
+    // also need to have a mechanism to remove/skip data when an unique element becomes ununique
+    // when read data, skip non-unique ones, O(n) worst case
+    // when write data, remove non-unique ones O(N) or O(1) depends on data structure
     LinkedHashSet<Integer> uniqueLinkedSet; // FIFO data structure, with ability to remove certain element
     Set<Integer> seenSet;
     public FirstUnique(int[] nums) {
