@@ -38,9 +38,8 @@ class Solution {
 
             if (lower.contains(curr)) {
                 // perform operation to update result (left operand)
-                // 1-1+1
                 result = getResult(result, operand, operator);
-                // TODO empty stack
+                // empty stack to complete all previous lower level tasks within the bracket before proceed
                 // (4-3*2+3)
                 while (!stack.isEmpty() && stack.peek().charAt(0) != '(') {
                     operator = stack.pop().charAt(0);
@@ -72,6 +71,8 @@ class Solution {
                 stack.push(String.valueOf(result));
                 stack.push(String.valueOf(operator));
                 stack.push(String.valueOf('('));
+
+                // reset
                 result = 0;
                 operand = 0;
                 operator = '+';
@@ -82,11 +83,14 @@ class Solution {
                 // 1 + (2+3*4)
                 result = getResult(result, operand, operator);
                 while (stack.peek().charAt(0) != '(') {
+                    // calculate everything within current bracket
                     operator = stack.pop().charAt(0);
                     final int prevResult = Integer.valueOf(stack.pop());
                     result = getResult(prevResult, result, operator);
                 }
                 stack.pop(); // pop out open bracket (
+
+                // restore lower priority context
                 if (!stack.isEmpty()) {
                     operand = result;
                     operator = stack.pop().charAt(0);
