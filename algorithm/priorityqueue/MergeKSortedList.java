@@ -26,6 +26,10 @@
  * 1->1->2->3->4->4->5->6
  */
 class Solution {
+    // TLDR; if input not sorted, O(knlog(kn)), if input sorted, we simply need to merge them
+    // mering requires comparing and writing, comparing takes O(k) in general, which leads to O(kkn)
+    // by using a priority queue, optimize comparing into O(logk), which leads to a total of O(knlogk)
+    // when reading long sorted data stream, use PQ can be optimum v.s. sorting at the end
     public ListNode mergeKLists(ListNode[] lists) {
         // maintain a priority queue, with all elements from the head of each list
         // pop smallest in the response and add the next one, when it's not null
