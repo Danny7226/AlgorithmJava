@@ -10,7 +10,8 @@
  */
 class Solution {
     // TLDR; use a countermap and a size K pq O(n + nlogk)
-    // use a countermap and quick select O(n + nlogn) on average
+
+    // use a countermap and quick select O(n + nlogn) on average, but O(n^2) worst case
     public int[] topKFrequent(int[] nums, int k) {
         // O(N + Nlogk)
         Map<Integer, Integer> numCounter = new HashMap<>();
