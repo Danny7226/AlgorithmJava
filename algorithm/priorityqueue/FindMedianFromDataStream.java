@@ -15,7 +15,8 @@ class MedianFinder {
     // max heap with min heap, balance size so that max.size() ~= min.size()
 
     // Q, how does it different from find Kth smallest?
-    // A, Kth smallest, k is certain so that we could maintain a k sized max heap, medium is not size fixed, there for need to maintain 2 heaps
+    // A, Kth smallest, k is certain so that we could maintain a k sized max heap,
+    // medium is not size fixed, it is a percentail, therefore need to maintain 2 heaps
     PriorityQueue<Integer> maxHeap; // smaller half
     PriorityQueue<Integer> minHeap = new PriorityQueue<>(); // larger half
     public MedianFinder() {

@@ -13,6 +13,8 @@
  *
  * The functions get and put must each run in O(1) average time complexity.
  */
+// Followup, what if there is a remove() operation? Then we need to keep track of the previous LFU element
+// use a Map<Integer, [value, frequence]> with a treeset<[frequency, key]> to remove and add new freq in O(logn) (dont update inplace), hashed based on freq -> counter
 class LFUCache {
     // put() with O(1) therefore no tree data / priority queue structure
     // Least frequently used requres a counter to access the all least frequent nodes,
@@ -20,7 +22,7 @@ class LFUCache {
 
     Map<Integer, LinkedHashSet<Integer>> counter; // frequency, Set<key>
     Map<Integer, int[]> map; // key, [value, frequency];
-    int leastFrequency = 1;
+    int leastFrequency = 1; // we can do this cuz no delete() operation
     final int capacity;
     public LFUCache(int capacity) {
         this.counter = new HashMap<>();
